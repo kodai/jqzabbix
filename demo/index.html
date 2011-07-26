@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>jQuery plugin for Zabbix API demo</title>
+<link rel="stylesheet" type="text/css" href="main.css" media="screen" />
+<script type="text/javascript" charset="utf-8" src="../jqzabbix/jquery-1.4.2.js"></script>
+<script type="text/javascript" charset="utf-8" src="../jqzabbix/jqzabbix.js"></script>
+<script type="text/javascript" charset="utf-8" src="main.js"></script>
+<body>
+
+<!-- header -->
+<div id="header"><h1>jQuery plugin for Zabbix API demo</h1></div>
+
+<!-- contens -->
+<div id="login">
+
+    <form>
+      <ul>
+        <li>Username <input type="text" name="username" value="Admin"/></li>
+        <li>Password <input type="password" name="password" value="zabbix"/></li>
+      </ul>
+      <p><input type="button" value="Authenticate" onclick="doAuth(this.form)"/></p>
+    </form>
+
+</div>
+
+<div id="request" style="display:none;">
+
+  <form>
+    <ul>
+      <li>Method: <select class="method1" name="method1" onChange="changeMethod2(this.value)"></select> . <select class="method2" name="method2" onChange="changeParameters(this.form.method1.value, this.form.method2.value)"></select></li>
+      <li><a href="javascript:toggleParameters()">Parameters</a></li>
+      <p class="parameters"></p>
+      <li><input type="button" value="Send Request" onClick="doRequest(this.form)"/></li>
+    </ul>
+  </form>
+
+</div>
+
+<div id="result"></div>
+
+<!-- footer -->
+<div id="footer"><address>Copyright &copy 2011 Kodai Terashima. <a href="http://www.mozaby.com">Mozaby</a> project.</address></div>
+</body>
+</html>
