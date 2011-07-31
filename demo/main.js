@@ -151,9 +151,8 @@ var successMethod = function(response, status) {
             if (num === 0) {
                 header = '<tr>' + header + '</tr>';
             }
-            else {
-                contents += '<tr>' + row + '</tr>'
-            }
+
+            contents += '<tr>' + row + '</tr>'
             
             num++;
         });
