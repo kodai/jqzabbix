@@ -246,7 +246,7 @@ history: {
 },
 
 host: {
-    'get': ['nodeids','groupids','hostids','templateids','itemids','triggerids','graphids','proxyids','maintenanceids','dhostids','dserviceids','monitored_hosts','templated_hosts','proxy_hosts','with_items','with_monitored_items','with_historical_items','with_triggers','with_monitored_triggers','with_httptests','with_monitored_httptests','with_graphs','editable','filter','search','startSearch','excludeSearch','output','select_graphs','selectParentTemplates','select_items','select_triggers','select_graphs','select_applications','select_macros','select_profile','count_outout','groupOutput','preservekeys','sortfield','sortorder','limit'],
+    'get': ['nodeids','groupids','hostids','templateids','itemids','triggerids','graphids','proxyids','maintenanceids','dhostids','dserviceids','monitored_hosts','templated_hosts','proxy_hosts','with_items','with_monitored_items','with_historical_items','with_triggers','with_monitored_triggers','with_httptests','with_monitored_httptests','with_graphs','editable','filter','search','startSearch','excludeSearch','output','select_graphs','selectParentTemplates','select_items','select_triggers','select_graphs','select_applications','select_macros','select_profile','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
     'exists': ['nodeids','hostid','host'],
     'create': [],
     'update': [],
@@ -257,7 +257,7 @@ host: {
 },
 
 hostgroup: {
-    'get': ['nodeids','groupods','hostids','templateids','triggerids','graphids','proxyids','maintenanceids','monitored_hosts','templated_hosts','real_hosts','not_proxy_hosts','with_items','with_monitored_items','with_historucal_items','with_triggers','woth_monitored_triggers','with_httptests','with_monitored_httptests','with_graphs','editable','filter','search','startSearch','excludeSearch','output','select_templates','select_hosts','count_outout','groupOutput','preservekeys','sortfield','sortorder','limit'],
+    'get': ['nodeids','groupods','hostids','templateids','triggerids','graphids','proxyids','maintenanceids','monitored_hosts','templated_hosts','real_hosts','not_proxy_hosts','with_items','with_monitored_items','with_historucal_items','with_triggers','woth_monitored_triggers','with_httptests','with_monitored_httptests','with_graphs','editable','filter','search','startSearch','excludeSearch','output','select_templates','select_hosts','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
     'exists': ['nodeids','groupid','name'],
     'create': [],
     'update': [],
@@ -268,7 +268,7 @@ hostgroup: {
 },
 
 image: {
-    'get': ['nodeids','imageids','sysmapids','editable','filter','pattern','startPattern','excludePattern','output','select_image','count_outout','preservekeys','sortfield','sortorder','limit'],
+    'get': ['nodeids','imageids','sysmapids','editable','filter','pattern','startPattern','excludePattern','output','select_image','countOutput','preservekeys','sortfield','sortorder','limit'],
     'exists': ['nodeids','imageid','name','imagetype'],
     'create': [],
     'update': [],
@@ -276,7 +276,7 @@ image: {
 },
 
 item: {
-    'get': ['nodeids','groupods','hostids','templateids','proxyids','itemids','graphids','triggerids','applicationids','webitems','inherited','templated','monitored','editable','filter','group','host','application','belongs','with_triggers','search','startSearch','excludeSearch','output','select_hosts','select_triggers','select_graphs','select_applications','count_outout','groupOutput','preservekeys','sortfield','sortorder','limit'],
+    'get': ['nodeids','groupods','hostids','templateids','proxyids','itemids','graphids','triggerids','applicationids','webitems','inherited','templated','monitored','editable','filter','group','host','application','belongs','with_triggers','search','startSearch','excludeSearch','output','select_hosts','select_triggers','select_graphs','select_applications','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
     'exists': ['nodeids','key_','hostid','host'],
     'create': [],
     'update': [],
