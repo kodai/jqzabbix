@@ -1,12 +1,17 @@
 /*!
- *  jQuery plugin for Zabbix API - Mozaby core
+ *  jQuery plugin for Zabbix API
  *
+ *  jQuery plugin for Zabbix API is a simple and easy-use plugin for jQuery JavaScript Library.
+ *  It can be used for development of original Zabbix web application using Zabbix API.
+ *
+ *  Documentation on Mozaby site http://www.mozaby.com
+ *  Issue tracking on GitHub http://github.com/kodai/jqzabbix
+ *
+ *  jQuery plugin for Zabbix API is Released under the MIT License.
+ *  Copyright (c) 2011, Kodai Terashima http://kodai74.blogpot.com.
  *  Mozaby project http://www.mozaby.com
- *  Documentation and issue tracking on GitHub http://github.com/kodai/jqzabbix
- *
- *  Copyright 2011, Kodai Terashima http://kodai74.blogpot.com
- *  Released under MIT License.
  */
+
 
 (function($){
 
