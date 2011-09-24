@@ -163,7 +163,7 @@ var successMethod = function(response, status) {
         });
 
         if (contents) {
-            $('#result').html('<table>' + header + contents + '</table>');
+            $('#result').html('<p>Result: '+ response.result.length + '</p><table>' + header + contents + '</table>');
         }
         else {
             $('#result').html('No result')
