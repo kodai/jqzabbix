@@ -226,7 +226,7 @@ DService: {
 },
 
 event: {
-    'get': ['nodeids','groupids','hostids','triggerids','eventids','editable','object','value','source','acknowledged','hideUknown','time_from','time_till','output','select_hosts','select_triggers','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
+    'get': ['nodeids','groupids','hostids','triggerids','eventids','editable','object','value','source','acknowledged','hide_unknown','time_from','time_till','output','select_hosts','select_triggers','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
     'acknowledge': ['eventids','message'],
     //'create': [],
     'delete': ['eventids']
