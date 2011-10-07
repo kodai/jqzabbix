@@ -326,7 +326,7 @@ screen: {
 
 script : {
     'get': ['nodeids','groupids','hostids','scriptids','editable','filter','search','startSearch','excludeSearch','output','select_groups','select_hosts','countOutput','preservekeys','sortfield','sortorder','limit'],
-    //'execute': [],
+    'execute': ['scriptid','hostid'],
     //'create': [],
     //'update': [],
     'delete': ['scriptids']
