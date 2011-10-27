@@ -36,19 +36,6 @@ var authid = null;
 var apiversion = null;
 var errormsg = null;
 
-// initialize default ajax options
-$.ajaxSetup({
-    contentType: 'application/json-rpc',
-    dataType: 'json',
-    type: 'POST',
-    async: false,
-    cache: false,
-    processData: false,
-    timeout: options.timeout,
-    url: options.url,
-});
-// end initialize
-
 
 function createAjaxOption(method, params, success, error) {
 
@@ -85,6 +72,14 @@ function createAjaxOption(method, params, success, error) {
 
     // create AJAX option
     var ajaxOption = {
+        contentType: 'application/json-rpc',
+        dataType: 'json',
+        type: 'POST',
+        async: false,
+        cache: false,
+        processData: false,
+        timeout: options.timeout,
+        url: options.url,
         data: JSON.stringify(data),
         success: function(response, status) {
 
