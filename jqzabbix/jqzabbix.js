@@ -95,7 +95,7 @@ function createAjaxOption(method, params, success, error) {
             else {
 
                 // do success function
-                if (success) {
+                if (typeof success === 'function') {
                     success(response, status);
                 }
                 errormsg = '';
