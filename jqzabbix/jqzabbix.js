@@ -165,6 +165,9 @@ this.getApiVersion = function(params, success, error) {
 
 this.userLogin = function(params, success, error) {
 
+    // reset rpcid
+    rpcid = 0;
+
     // method
     switch (apiversion) {
         case '1.0':
