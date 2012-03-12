@@ -37,7 +37,7 @@ var apiversion = null;
 var errormsg = null;
 
 
-function createAjaxOption(method, params, success, error) {
+function createAjaxOption(method, params, success, error, complete) {
 
     // check method option
     if (method === null || typeof method === 'undefined') {
@@ -75,7 +75,7 @@ function createAjaxOption(method, params, success, error) {
         contentType: 'application/json-rpc',
         dataType: 'json',
         type: 'POST',
-        async: false,
+        async: true,
         cache: false,
         processData: false,
         timeout: options.timeout,
@@ -85,7 +85,9 @@ function createAjaxOption(method, params, success, error) {
 
             // resuest error
             if (response === null) {
-                errormsg = 'Request error!';
+                errormsg = {
+                    data: 'Network error'
+                };
             }
             else if ('error' in response) {
                 errormsg = response.error;
@@ -94,19 +96,35 @@ function createAjaxOption(method, params, success, error) {
             // resuest success
             else {
 
+                // clear error message
+                errormsg = null;
+
                 // do success function
                 if (typeof success === 'function') {
                     success(response, status);
                 }
-                errormsg = '';
             }
         },
         error: function(response, status) {
-            errormsg = status + ' : ' + response.status + ' ' + response.statusText;
-        },
-        complete: function() {
+
+            if (status === 'timeout') {
+                errormsg = 'Network timeout';
+            }
+            else if (response.status && response.statusText) {
+                errormsg = status + ' : ' + response.status + ' ' + response.statusText;
+            }
+            else {
+                errormsg = 'Unknown error';
+            }
+
             if (errormsg && typeof error === 'function') {
                 error();
+            }
+        },
+        complete: function() {
+
+            if (typeof complete === 'function') {
+                complete();
             }
         }
     };
@@ -144,12 +162,12 @@ this.isError = function() {
     }
 }
 
-this.sendAjaxRequest = function(method, params, success, error) {
+this.sendAjaxRequest = function(method, params, success, error, complete) {
 
-    $.ajax(createAjaxOption(method, params, success, error));
+    $.ajax(createAjaxOption(method, params, success, error, complete));
 }
 
-this.getApiVersion = function(params, success, error) {
+this.getApiVersion = function(params, success, error, complete) {
 
     var method = 'apiinfo.version';
     var successMethod = function(response, status) {
@@ -160,10 +178,10 @@ this.getApiVersion = function(params, success, error) {
         }
     }
 
-    this.sendAjaxRequest(method, params, successMethod, error);
+    this.sendAjaxRequest(method, params, successMethod, error, complete);
 }
 
-this.userLogin = function(params, success, error) {
+this.userLogin = function(params, success, error, complete) {
 
     // reset rpcid
     rpcid = 0;
@@ -188,7 +206,7 @@ this.userLogin = function(params, success, error) {
         }
     }
 
-    this.sendAjaxRequest(method, params, successMethod, error);
+    this.sendAjaxRequest(method, params, successMethod, error, complete);
 }
 
 } // end plugin
