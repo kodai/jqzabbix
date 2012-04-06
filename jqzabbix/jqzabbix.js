@@ -195,7 +195,7 @@ this.userLogin = function(params, success, error, complete) {
             var method = 'user.authenticate';
             break;
         default:
-            return false;
+            var method = 'user.login';
     }
 
     var successMethod = function(response, status) {
