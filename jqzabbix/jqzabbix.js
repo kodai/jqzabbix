@@ -189,7 +189,7 @@ this.isError = function() {
 
 this.sendAjaxRequest = function(method, params, success, error, complete) {
 
-    $.ajax(createAjaxOption(method, params, success, error, complete));
+    return $.ajax(createAjaxOption(method, params, success, error, complete));
 }
 
 this.getApiVersion = function(params, success, error, complete) {
@@ -203,7 +203,7 @@ this.getApiVersion = function(params, success, error, complete) {
         }
     }
 
-    this.sendAjaxRequest(method, params, successMethod, error, complete);
+    return this.sendAjaxRequest(method, params, successMethod, error, complete);
 }
 
 this.userLogin = function(params, success, error, complete) {
@@ -232,7 +232,7 @@ this.userLogin = function(params, success, error, complete) {
         }
     }
 
-    this.sendAjaxRequest(method, params, successMethod, error, complete);
+    return this.sendAjaxRequest(method, params, successMethod, error, complete);
 }
 
 } // end plugin
