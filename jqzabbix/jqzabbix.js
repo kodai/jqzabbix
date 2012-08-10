@@ -131,11 +131,36 @@ function createAjaxOption(method, params, success, error, complete) {
 
     // if use http basic authentication
     if (options.basicauth === true) {
-        ajaxOption.username = options.busername;
-        ajaxOption.password = options.bpassword;
+        var base64 = base64encode(options.busername + ':' + options.bpassword);
+        ajaxOption.beforeSend = function(xhr) {
+            xhr.setRequestHeader("Authorization", "Basic " + base64);
+        }
     }
 
     return ajaxOption;
+}
+
+function base64encode(string) {
+
+    var base64list = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
+    var t = '', p = -6, a = 0, i = 0, v = 0, c;
+
+    while ( (i < string.length) || (p > -6) ) {
+        if ( p < 0 ) {
+            if ( i < string.length ) {
+            c = string.charCodeAt(i++);
+            v += 8;
+            } else {
+                c = 0;
+            }
+            a = ((a&255)<<8)|(c&255);
+            p += 8;
+        }
+        t += base64list.charAt( ( v > 0 )? (a>>p)&63 : 64 )
+        p -= 6;
+        v -= 6;
+    }
+    return t;
 }
 
 this.init = function() {
@@ -188,14 +213,15 @@ this.userLogin = function(params, success, error, complete) {
 
     // method
     switch (apiversion) {
-        case '1.0':
-        case '1.1':
-        case '1.2':
-        case '1.3':
-            var method = 'user.authenticate';
-            break;
-        default:
-            var method = 'user.login';
+    case '1.0':
+    case '1.1':
+    case '1.2':
+    case '1.3':
+        var method = 'user.authenticate';
+        break;
+    default:
+        var method = 'user.login';
+        break;
     }
 
     var successMethod = function(response, status) {
@@ -210,4 +236,4 @@ this.userLogin = function(params, success, error, complete) {
 }
 
 } // end plugin
-})(jQuery); // function($)
+})(window.jQuery || window.Zepto); // function($)
