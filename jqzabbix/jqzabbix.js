@@ -88,9 +88,15 @@ function createAjaxOption(method, params, success, error, complete) {
                 errormsg = {
                     data: 'Network error'
                 };
+                if (typeof error === 'function') {
+                    error();
+                }
             }
             else if ('error' in response) {
                 errormsg = response.error;
+                if (typeof error === 'function') {
+                    error();
+                }
             }
             
             // resuest success
