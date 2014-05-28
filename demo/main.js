@@ -175,17 +175,16 @@ var successMethod = function(response, status) {
 var methods = {
 
 action: {
-    'get': ['nodeids','groupids','hostids','triggerids','actionids','mediatypeids','userids','editable','filter','search','startSearch','excludeSearch','output','select_conditions','select_operations','countOutput','preservekeys','sortfield','sortorder','limit'],
-    'exixts': ['nodeids','actionid','name'],
+    'get': ['actionids','groupids','hostids','triggerids','mediatypeids','usrgrpids','userids','scriptids','selectConditions','selectOperations','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'exixts': ['actionid','name'],
     //'create': [],
     //'update': [],
     'delete': ['actionids']
 },
 
 alert: {
-    'get': ['nodeids','groupids','hostids','alertids','triggerids','eventids','editable','filter','time_from','time_till','output','select_hosts','select_mediatypes','select_users','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
+    'get': ['alertids','actionids','eventids','groupids','hostids','mediatypeids','objectids','userids','eventobject','eventsource','time_from','time_till','selectHosts','selectMediatypes','selectUsers','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
     //'create': [],
-    'delete': ['alertids']
 },
 
 apiinfo: {
@@ -193,64 +192,67 @@ apiinfo: {
 },
 
 application: {
-    'get': ['nodeids','groupids','hostids','templateids','itemids','applicationids','inherited','templated','monitored','editable','filter','search','startSearch','expandData','output','select_hosts','select_items','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
-    'exists': ['nodeids','name','hostid','host'],
+    'get': ['applicationids','groupids','hostids','inherited','itemids','templated','templateids','expandData','selectHosts','selectItems','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'exists': ['hostid','name'],
     //'create': [],
     //'update': [],
     'delete': ['applicationids']
 },
 
-DCheck: {
-    'get': ['nodeids','druleids','dhostids','dcheckids','editable','filter','search','startSearch','excludeSearch','output','selectDRules','selectDHosts','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit']
-},
-
 DHost: {
-    'get': ['nodeids','druleids','dhostids','dserviceids','groupids','hostids','editable','filter','search','startSearch','excludeSearch','output','selectDRules','selectDChecks','selectDServices','selectGroups','selectHosts','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
-    'delete': ['dhostids']
-},
-
-DRule: {
-    'get': ['nodeids','druleids','dhostids','dserviceids','dcheckids','editable','filter','search','startSearch','excludeSearch','output','selectDHosts','selectDChecks','selectDServices','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
-    //'exists': [],
-    //'create': [],
-    //'update': [],
-    'delete': ['druleids']
+    'get': ['dhostids','druleids','dserviceids','selectDRules','selectDServices','limitSelects','sortfield','countOutput','editable','excludeSearch','filter','limit',,'output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'exists': ['dhostid']
 },
 
 DService: {
-    'get': ['nodeids','druleids','dhostids','dserviceids','dcheckids','editable','filter','search','startSearch','excludeSearch','output','selectDRules','selectDChecks','selectDServices','selectDHosts','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
-    //'exists': [],
+    'get': ['dserviceids','dhostids','dcheckids','druleids','selectDRules','selectDHosts','selectHosts','limitSelects','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'exists': ['dserviceid']
     //'create': [],
     //'update': [],
-    'delete': ['dserviceids']
+},
+
+DCheck: {
+    'get': ['dcheckids','druleids','dserviceids','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']
+},
+
+Drule: {
+    'get': ['dhostids','druleids','dserviceids','selectDChecks''selectDHosts','limitSelects','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'exists': ['druleids','name'],
+    //'create': [],
+    //'update': [],
+    'delete': ['druleids','name']
 },
 
 event: {
-    'get': ['nodeids','groupids','hostids','triggerids','eventids','editable','object','value','source','acknowledged','hide_unknown','time_from','time_till','output','select_hosts','select_triggers','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
-    'acknowledge': ['eventids','message'],
+    'get': ['eventids','groupids','hostids','objectids','object','acknowledged','eventid_from','eventid_till','source','time_from','time_till','value','selectHosts','selectRelatedObject','select_alerts','select_acknowledges','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'acknowledge': ['eventids','message']
     //'create': [],
-    'delete': ['eventids']
 },
 
 graph: {
-    'get': ['nodeids','groupids','templateids','hostids','graphids','itemids','type','inherited','templated','editable','filter','search','startSearch','excludeSearch','output','select_groups','select_templates','select_hosts','select_items','select_graph_items','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
-    'exists': ['nodeids','name','hostid','host'],
+    'get': ['graphids','groupids','templateids','hostids','itemids','templated','inherited','expandName','selectGroups','selectTemplates','selectHosts','selectItems','selectGraphItems','selectDiscoveryRule','filter','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'exists': ['host','hostids','name'],
     //'create': [],
     //'update': [],
     'delete': ['graphids']
 },
 
 graphitem: {
-    'get': ['nodeids','graphids','itemids','type','editable','output','expandData','select_graphs','countOutput','graphOutput','preservekeys','sortfield','sortorder','limit']
+    'get': ['gitemids','graphids','itemids','type','expandData','selectGraphs','sortfield','countOutput','editable','limit','output','preservekeys','sortorder']
+},
+
+graphprototype: {
+    'get': ['discoveryids','graphids','groupids','hostids','inherited','itemids','templated','templateids','selectDiscoveryRule','selectGraphItems','selectGroups','selectHosts','selectItems','selectTemplates','filter','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'exists': ['host','hostids','name'],
+    'delete': ['graphprototypeids']
 },
 
 history: {
-    'get': ['history','nodeids','hostids','triggerids','itemids','time_from','time_till','editable','filter','pattern','startPattern','excludePattern','output','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
-    'delete': []
+    'get': ['history','hostids','itemids','time_from','time_till','sortfield','countOutput','editable','excludeSearch','filter','limit','output','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']
 },
 
 host: {
-    'get': ['nodeids','groupids','hostids','templateids','itemids','triggerids','graphids','proxyids','maintenanceids','dhostids','dserviceids','monitored_hosts','templated_hosts','proxy_hosts','with_items','with_monitored_items','with_historical_items','with_triggers','with_monitored_triggers','with_httptests','with_monitored_httptests','with_graphs','editable','filter','search','startSearch','excludeSearch','output','select_graphs','selectParentTemplates','select_items','select_triggers','select_graphs','select_applications','select_macros','select_profile','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
+    'get': ['groupids','applicationids','dserviceids','graphids','hostids','httptestids','interfaceids','itemids','maintenanceids','monitored_hosts','proxy_hosts','proxyids','templated_hosts','templateids','triggerids','with_items','with_applications','with_graphs','with_httptests','with_monitored_httptests','with_monitored_items','with_monitored_triggers','with_simple_graph_items','with_triggers','withInventory','selectGroups','selectApplications','selectDiscoveries','selectDiscoveryRule','selectGraphs','selectHostDiscovery','selectHttpTests','selectInterfaces','selectInventory','selectItems','selectMacros','selectParentTemplates','selectScreens','selectTriggers','filter','limitSelects','search','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
     'exists': ['nodeids','hostid','host'],
     //'create': [],
     //'update': [],
