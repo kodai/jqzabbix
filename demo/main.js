@@ -216,7 +216,7 @@ DCheck: {
 },
 
 Drule: {
-    'get': ['dhostids','druleids','dserviceids','selectDChecks''selectDHosts','limitSelects','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'get': ['dhostids','druleids','dserviceids','selectDChecks','selectDHosts','limitSelects','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
     'exists': ['druleids','name'],
     //'create': [],
     //'update': [],
