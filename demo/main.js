@@ -74,7 +74,7 @@ function changeMethod2(value) {
 function changeParameters(method1, method2) {
 
     if (methods[method1][method2].length === 0) {
-        $('.parameters').html('Paraneters are not exists or not configured.')
+        $('.parameters').html('Parameters do not exist or are not configured.')
     }
     else {
 
