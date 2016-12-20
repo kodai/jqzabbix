@@ -56,10 +56,12 @@ function createAjaxOption(method, params, success, error, complete) {
     }, params);
 
     // merge params with username and password
-    $.extend(params, {
-        user: options.username,
-        password: options.password
-    });
+    if (authid == null) {
+        $.extend(params, {
+            user: options.username,
+            password: options.password
+        });
+    }
 
     // create sending data
     var data = {
