@@ -29,12 +29,9 @@ $(document).ready(function(){
 })
 
 function doAuth(form){
-
     options.username = form.username.value;
     options.password = form.password.value;
-    server.setOptions(options);
-
-    server.userLogin(null, function(){
+    server.userLogin({user:options.username,password:options.password}, function(){
         $('#result').empty();
         viewInputForm();
     },
