@@ -14,21 +14,19 @@
 
 
 // Zabbix server API url
-var url = 'http://localhost/zabbix/api_jsonrpc.php';
-
+var url = '';
 var options = {};
-options.url = url;
-
 $(document).ready(function(){
-
-    server = new $.jqzabbix(options);
-    server.getApiVersion(null, function(response){
-        $('#result').html('<ul><li>Zabbix API Url: '+ url +'</li>' + '<li>API Version: ' + response.result + '</li></ul>');
-    });
-    
+    $('#result').html('<ul><li>Zabbix API Url: '+ $("input[name='url']").val() +'</li></ul>');
 })
 
 function doAuth(form){
+    url=$.trim($("input[name='url']").val());
+    options.url = url;
+    server = new $.jqzabbix(options);
+    server.getApiVersion(null, function(response){
+        $('#result').html('<ul><li>Zabbix API Url: '+  +'</li>' + '<li>API Version: ' + response.result + '</li></ul>');
+    });
     options.username = form.username.value;
     options.password = form.password.value;
     server.userLogin({user:options.username,password:options.password}, function(){
