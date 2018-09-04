@@ -289,6 +289,12 @@ item: {
     //'update': [],
     'delete': ['itemids']
 },
+httptest: {
+    'get': ['applicationids','groupids','hostids','httptestids','inherited','monitored','templated','templateids','expandName','expandStepName','selectHosts','selectSteps','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    //'create': [],
+    //'update': [],
+    'delete': ['webScenarioIds']
+},
 
 maintenance: {
     'get': ['nodeids','groupids','hostids','maintenanceids','editable','filter','pattern','startPattern','excludePattern','output','select_groups','select_hosts','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
