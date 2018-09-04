@@ -93,7 +93,13 @@ function doRequest(form) {
 
     $('#request .parameters input').each(function(){
         if (this.value){
-            params[this.name] = this.value;
+            if(this.value.indexOf("[")==0){
+                params[this.name] = eval(this.value);
+            } else if(this.value.indexOf("{")==0){
+                params[this.name] = JSON.parse(this.value);
+            }else {
+                params[this.name] = this.value;
+            }
         }
     });
 
