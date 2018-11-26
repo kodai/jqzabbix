@@ -353,10 +353,9 @@ template: {
 },
 
 trigger: {
-    'get': ['nodeids','groupids','templateids','hostids','triggerids','itemids','applicationids','functions','inherited','templated','monitored','active','maintenance','withUnacknowledgedEvents','withAcknowledgedEvents','withLastEventUnacknowledged','skipDependent','editable','lastChangeSince','lastChangeTill','filter','group','host','only_true','min_severity','search','startSearch','excludeSearch','output','expandData','expandDescription','select_groups','select_hosts','select_items','select_functions','select_dependencies','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
-    'exists': ['nodeids','description','expression','hostid','host'],
-    //'create': [],
-    //'update': [],
+    'get': ['triggerids','groupids','templateids','hostids','itemids','applicationids','functions','group','host','inherited','templated','monitored','active','maintenance','withUnacknowledgedEvents','withAcknowledgedEvents','withLastEventUnacknowledged','skipDependent','lastChangeSince','lastChangeTill','only_true','min_severity','expandComment','expandDescription','expandExpression','selectGroups','selectHosts','selectItems','selectFunctions','selectDependencies','selectDiscoveryRule','selectLastEvent','selectTags','filter','limitSelects','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'create': ["triggerid","description","expression",'comments','error','flags','lastchange','priority','state','status','templateid','type','url','value','recovery_mode','recovery_expression','correlation_mode','correlation_tag','manual_close','dependencies','tags'],
+    'update': ["triggerid","description","expression",'comments','error','flags','lastchange','priority','state','status','templateid','type','url','value','recovery_mode','recovery_expression','correlation_mode','correlation_tag','manual_close','dependencies','tags'],
     'delete': ['triggerids'],
     'addDependencies': ['triggerid','dependsOnTriggerid'],
     'deleteDependencies': ['triggerids']
