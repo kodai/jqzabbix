@@ -361,6 +361,12 @@ trigger: {
     'addDependencies': ['triggerid','dependsOnTriggerid'],
     'deleteDependencies': ['triggerids']
 },
+triggerprototype:{
+    'get':['active','applicationids','discoveryids','functions','group','groupids','host','hostids','inherited','maintenance','min_severity','monitored','templated','templateids','triggerids','expandExpression','selectDiscoveryRule','selectFunctions','selectGroups','selectHosts','selectItems','selectDependencies','selectTags','filter','limitSelects','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'create':["triggerid","description ","expression","comments","priority","status","templateid","type","url","recovery_mode","recovery_expression","correlation_mode","correlation_tag","manual_close","dependencies","tags"],
+    'update':["triggerid","description ","expression","comments","priority","status","templateid","type","url","recovery_mode","recovery_expression","correlation_mode","correlation_tag","manual_close","dependencies","tags"],
+    'delete':["triggerPrototypeIds"]
+},
 
 user: {
     'get': ['nodeids','usrgrpids','userids','mediaids','mediatypeids','editable','filter','search','startSearch','excludeSearch','output','select_usrgrps','select_medias','select_mediatypes','get_graphs','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
