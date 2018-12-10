@@ -37,7 +37,6 @@ function doAuth(form){
 }
 
 function viewInputForm() {
-
     // hide login form
     $('#login').css({display:'none'});
 
@@ -74,11 +73,13 @@ function changeParameters(method1, method2) {
     else {
 
         var parameterlist = '';
-
-        $.each(methods[method1][method2], function(key, value) {
-            parameterlist += '<tr><td>' + value + '</td><td><input type="text" name="' + value + '"/></td></tr>';
-        });
-
+        if(methods[method1][method2].type=="object"){
+                $.each(methods[method1][method2]["value"], function(key, value) {
+                parameterlist += '<tr><td>' + value + '</td><td><input type="text" name="' + value + '"/></td></tr>';
+            });
+        }else if(methods[method1][method2].type=='array'){
+            parameterlist+="<tr><td colspan='2'><input type='text'/></td></tr>";
+        }
         $('.parameters').html('<table>' + parameterlist + '</table>');
     }
 }
@@ -92,13 +93,26 @@ function doRequest(form) {
     var params = {};
 
     $('#request .parameters input').each(function(){
+        debugger;
         if (this.value){
-            if(this.value.indexOf("[")==0){
+            if(this.value.indexOf("[")==0&&this.value.lastIndexOf("]")==this.value.length-1){
+               if(this.name){
                 params[this.name] = eval(this.value);
-            } else if(this.value.indexOf("{")==0){
-                params[this.name] = JSON.parse(this.value);
+               }else{
+                   params=eval(this.value);
+               }
+            } else if(this.value.indexOf("{")==0&&this.value.lastIndexOf("}")==this.value.length-1){
+                if(this.name){
+                   params[this.name] = JSON.parse(this.value);
+                }else{
+                    params=JSON.parse(this.value);
+                }
             }else {
-                params[this.name] = this.value;
+                if(this.name){
+                    params[this.name] = this.value;
+                }else{
+                    params=this.value;
+                }
             }
         }
     });
@@ -164,7 +178,7 @@ var successMethod = function(response, status) {
         });
 
         if (contents) {
-            $('#result').html('<p>Result: '+ response.result.length + '</p><table>' + header + contents + '</table>');
+            $('#result').html('<p>response: '+ JSON.stringify(response) + '</p><table>' + header + contents + '</table>');
         }
         else {
             $('#result').html('No result')
@@ -176,11 +190,11 @@ var successMethod = function(response, status) {
 var methods = {
 
 action: {
-    'get': ['actionids','groupids','hostids','triggerids','mediatypeids','usrgrpids','userids','scriptids','selectConditions','selectOperations','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
-    'exixts': ['actionid','name'],
+    'get': {"type":"object","value":['actionids','groupids','hostids','triggerids','mediatypeids','usrgrpids','userids','scriptids','selectConditions','selectOperations','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
+    'exixts': {"type":"object","value":['actionid','name']},
     //'create': [],
     //'update': [],
-    'delete': ['actionids']
+    'delete': {"type":"array"}
 },
 
 alert: {
@@ -353,12 +367,12 @@ template: {
 },
 
 trigger: {
-    'get': ['triggerids','groupids','templateids','hostids','itemids','applicationids','functions','group','host','inherited','templated','monitored','active','maintenance','withUnacknowledgedEvents','withAcknowledgedEvents','withLastEventUnacknowledged','skipDependent','lastChangeSince','lastChangeTill','only_true','min_severity','expandComment','expandDescription','expandExpression','selectGroups','selectHosts','selectItems','selectFunctions','selectDependencies','selectDiscoveryRule','selectLastEvent','selectTags','filter','limitSelects','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
-    'create': ["triggerid","description","expression",'comments','error','flags','lastchange','priority','state','status','templateid','type','url','value','recovery_mode','recovery_expression','correlation_mode','correlation_tag','manual_close','dependencies','tags'],
-    'update': ["triggerid","description","expression",'comments','error','flags','lastchange','priority','state','status','templateid','type','url','value','recovery_mode','recovery_expression','correlation_mode','correlation_tag','manual_close','dependencies','tags'],
-    'delete': ['triggerids'],
-    'addDependencies': ['triggerid','dependsOnTriggerid'],
-    'deleteDependencies': ['triggerids']
+    'get': {"type":"object","value":['triggerids','groupids','templateids','hostids','itemids','applicationids','functions','group','host','inherited','templated','monitored','active','maintenance','withUnacknowledgedEvents','withAcknowledgedEvents','withLastEventUnacknowledged','skipDependent','lastChangeSince','lastChangeTill','only_true','min_severity','expandComment','expandDescription','expandExpression','selectGroups','selectHosts','selectItems','selectFunctions','selectDependencies','selectDiscoveryRule','selectLastEvent','selectTags','filter','limitSelects','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
+    'create': {"type":"object","value":["triggerid","description","expression",'comments','error','flags','lastchange','priority','state','status','templateid','type','url','value','recovery_mode','recovery_expression','correlation_mode','correlation_tag','manual_close','dependencies','tags']},
+    'update': {"type":"object","value":["triggerid","description","expression",'comments','error','flags','lastchange','priority','state','status','templateid','type','url','value','recovery_mode','recovery_expression','correlation_mode','correlation_tag','manual_close','dependencies','tags']},
+    'delete': {"type":"array"},
+    'addDependencies': {"type":"object","value":['triggerid','dependsOnTriggerid']},
+    'deleteDependencies': {"type":"object","value":['triggerids']}
 },
 triggerprototype:{
     'get':['active','applicationids','discoveryids','functions','group','groupids','host','hostids','inherited','maintenance','min_severity','monitored','templated','templateids','triggerids','expandExpression','selectDiscoveryRule','selectFunctions','selectGroups','selectHosts','selectItems','selectDependencies','selectTags','filter','limitSelects','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
