@@ -198,172 +198,172 @@ action: {
 },
 
 alert: {
-    'get': ['alertids','actionids','eventids','groupids','hostids','mediatypeids','objectids','userids','eventobject','eventsource','time_from','time_till','selectHosts','selectMediatypes','selectUsers','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'get': {"type:":"object","value":['alertids','actionids','eventids','groupids','hostids','mediatypeids','objectids','userids','eventobject','eventsource','time_from','time_till','selectHosts','selectMediatypes','selectUsers','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
     //'create': [],
 },
 
 apiinfo: {
-    'version': []
+    'version': {"type":"array"}
 },
 
 application: {
-    'get': ['applicationids','groupids','hostids','inherited','itemids','templated','templateids','expandData','selectHosts','selectItems','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
-    'exists': ['hostid','name'],
+    'get': {"type":"object","value":['applicationids','groupids','hostids','inherited','itemids','templated','templateids','expandData','selectHosts','selectItems','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
+    'exists': {"type":"object","value":['hostid','name']},
     //'create': [],
     //'update': [],
-    'delete': ['applicationids']
+    'delete': {"type":"array"}
 },
 
 DHost: {
-    'get': ['dhostids','druleids','dserviceids','selectDRules','selectDServices','limitSelects','sortfield','countOutput','editable','excludeSearch','filter','limit',,'output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
-    'exists': ['dhostid']
+    'get': {"type":"object","value":['dhostids','druleids','dserviceids','selectDRules','selectDServices','limitSelects','sortfield','countOutput','editable','excludeSearch','filter','limit',,'output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
+    'exists': {"type":"object","value":['dhostid']}
 },
 
 DService: {
-    'get': ['dserviceids','dhostids','dcheckids','druleids','selectDRules','selectDHosts','selectHosts','limitSelects','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
-    'exists': ['dserviceid']
+    'get': {"type":"object","value":['dserviceids','dhostids','dcheckids','druleids','selectDRules','selectDHosts','selectHosts','limitSelects','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
+    'exists': {"type":"object","value":['dserviceid']}
     //'create': [],
     //'update': [],
 },
 
 DCheck: {
-    'get': ['dcheckids','druleids','dserviceids','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']
+    'get': {"type":"object","value":['dcheckids','druleids','dserviceids','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']}
 },
 
 Drule: {
-    'get': ['dhostids','druleids','dserviceids','selectDChecks','selectDHosts','limitSelects','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
-    'exists': ['druleids','name'],
+    'get': {"type":"object","value":['dhostids','druleids','dserviceids','selectDChecks','selectDHosts','limitSelects','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
+    'exists': {"type":"object","value":['druleids','name']},
     //'create': [],
     //'update': [],
-    'delete': ['druleids','name']
+    'delete': {"type":"array"}
 },
 
 event: {
-    'get': ['eventids','groupids','hostids','objectids','object','acknowledged','eventid_from','eventid_till','source','time_from','time_till','value','selectHosts','selectRelatedObject','select_alerts','select_acknowledges','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
-    'acknowledge': ['eventids','message']
+    'get': {"type":"object","value":['eventids','groupids','hostids','objectids','object','acknowledged','eventid_from','eventid_till','source','time_from','time_till','value','selectHosts','selectRelatedObject','select_alerts','select_acknowledges','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
+    'acknowledge': {"type":"object","value":['eventids','message']}
     //'create': [],
 },
 
 graph: {
-    'get': ['graphids','groupids','templateids','hostids','itemids','templated','inherited','expandName','selectGroups','selectTemplates','selectHosts','selectItems','selectGraphItems','selectDiscoveryRule','filter','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
-    'exists': ['host','hostids','name'],
+    'get': {"type":"object","value":['graphids','groupids','templateids','hostids','itemids','templated','inherited','expandName','selectGroups','selectTemplates','selectHosts','selectItems','selectGraphItems','selectDiscoveryRule','filter','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
+    'exists': {"type":"object","value":['host','hostids','name']},
     //'create': [],
     //'update': [],
-    'delete': ['graphids']
+    'delete': {"type":"array"}
 },
 
 graphitem: {
-    'get': ['gitemids','graphids','itemids','type','expandData','selectGraphs','sortfield','countOutput','editable','limit','output','preservekeys','sortorder']
+    'get': {"type":"object","value":['gitemids','graphids','itemids','type','expandData','selectGraphs','sortfield','countOutput','editable','limit','output','preservekeys','sortorder']}
 },
 
 graphprototype: {
-    'get': ['discoveryids','graphids','groupids','hostids','inherited','itemids','templated','templateids','selectDiscoveryRule','selectGraphItems','selectGroups','selectHosts','selectItems','selectTemplates','filter','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
-    'exists': ['host','hostids','name'],
-    'delete': ['graphprototypeids']
+    'get': {"type":"object","value":['discoveryids','graphids','groupids','hostids','inherited','itemids','templated','templateids','selectDiscoveryRule','selectGraphItems','selectGroups','selectHosts','selectItems','selectTemplates','filter','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
+    'exists': {"type":"object","value":['host','hostids','name']},
+    'delete': {"type":"array"}
 },
 
 history: {
-    'get': ['history','hostids','itemids','time_from','time_till','sortfield','countOutput','editable','excludeSearch','filter','limit','output','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']
+    'get': {"type":"object","value":['history','hostids','itemids','time_from','time_till','sortfield','countOutput','editable','excludeSearch','filter','limit','output','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']}
 },
 
 host: {
-    'get': ['groupids','applicationids','dserviceids','graphids','hostids','httptestids','interfaceids','itemids','maintenanceids','monitored_hosts','proxy_hosts','proxyids','templated_hosts','templateids','triggerids','with_items','with_applications','with_graphs','with_httptests','with_monitored_httptests','with_monitored_items','with_monitored_triggers','with_simple_graph_items','with_triggers','withInventory','selectGroups','selectApplications','selectDiscoveries','selectDiscoveryRule','selectGraphs','selectHostDiscovery','selectHttpTests','selectInterfaces','selectInventory','selectItems','selectMacros','selectParentTemplates','selectScreens','selectTriggers','filter','limitSelects','search','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
-    'exists': ['nodeids','hostid','host'],
+    'get': {"type":"object","value":['groupids','applicationids','dserviceids','graphids','hostids','httptestids','interfaceids','itemids','maintenanceids','monitored_hosts','proxy_hosts','proxyids','templated_hosts','templateids','triggerids','with_items','with_applications','with_graphs','with_httptests','with_monitored_httptests','with_monitored_items','with_monitored_triggers','with_simple_graph_items','with_triggers','withInventory','selectGroups','selectApplications','selectDiscoveries','selectDiscoveryRule','selectGraphs','selectHostDiscovery','selectHttpTests','selectInterfaces','selectInventory','selectItems','selectMacros','selectParentTemplates','selectScreens','selectTriggers','filter','limitSelects','search','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
+    'exists': {"type":"object","value":['nodeids','hostid','host']},
     //'create': [],
     //'update': [],
-    'delete': ['hostids'],
+    'delete': {"type":"array"},
     //'massAdd': [],
     //'massUpdate': [],
     //'massRemove': []
 },
 
 hostgroup: {
-    'get': ['nodeids','groupids','hostids','templateids','triggerids','graphids','proxyids','maintenanceids','monitored_hosts','templated_hosts','real_hosts','not_proxy_hosts','with_items','with_monitored_items','with_historucal_items','with_triggers','woth_monitored_triggers','with_httptests','with_monitored_httptests','with_graphs','editable','filter','search','startSearch','excludeSearch','output','select_templates','select_hosts','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
-    'exists': ['nodeids','groupid','name'],
+    'get': {"type":"object","value":['nodeids','groupids','hostids','templateids','triggerids','graphids','proxyids','maintenanceids','monitored_hosts','templated_hosts','real_hosts','not_proxy_hosts','with_items','with_monitored_items','with_historucal_items','with_triggers','woth_monitored_triggers','with_httptests','with_monitored_httptests','with_graphs','editable','filter','search','startSearch','excludeSearch','output','select_templates','select_hosts','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit']},
+    'exists': {"type":"object","value":['nodeids','groupid','name']},
     //'create': [],
     //'update': [],
     //'massAdd': [],
     //'massUpdate': [],
     //'massRemove': [],
-    'delete': ['groupids']
+    'delete': {"type":"array"}
 },
 
 image: {
-    'get': ['nodeids','imageids','sysmapids','editable','filter','pattern','startPattern','excludePattern','output','select_image','countOutput','preservekeys','sortfield','sortorder','limit'],
-    'exists': ['nodeids','imageid','name','imagetype'],
+    'get': {"type":"object","value":['nodeids','imageids','sysmapids','editable','filter','pattern','startPattern','excludePattern','output','select_image','countOutput','preservekeys','sortfield','sortorder','limit']},
+    'exists': {"type":"object","value":['nodeids','imageid','name','imagetype']},
     //'create': [],
     //'update': [],
-    'delete': ['imageids']
+    'delete': {"type":"array"}
 },
 
 item: {
-    'get': ['nodeids','groupids','hostids','templateids','proxyids','itemids','graphids','triggerids','applicationids','webitems','inherited','templated','monitored','editable','filter','group','host','application','belongs','with_triggers','search','startSearch','excludeSearch','output','select_hosts','select_triggers','select_graphs','select_applications','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
-    'exists': ['nodeids','key_','hostid','host'],
+    'get': {"type":"object","value":['nodeids','groupids','hostids','templateids','proxyids','itemids','graphids','triggerids','applicationids','webitems','inherited','templated','monitored','editable','filter','group','host','application','belongs','with_triggers','search','startSearch','excludeSearch','output','select_hosts','select_triggers','select_graphs','select_applications','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit']},
+    'exists': {"type":"object","value":['nodeids','key_','hostid','host']},
     //'create': [],
     //'update': [],
-    'delete': ['itemids']
+    'delete': {"type":"array"}
 },
 httptest: {
-    'get': ['applicationids','groupids','hostids','httptestids','inherited','monitored','templated','templateids','expandName','expandStepName','selectHosts','selectSteps','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
+    'get': {"type":"object","value":['applicationids','groupids','hostids','httptestids','inherited','monitored','templated','templateids','expandName','expandStepName','selectHosts','selectSteps','sortfield','countOutput','editable','excludeSearch','filter','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
     //'create': [],
     //'update': [],
-    'delete': ['webScenarioIds']
+    'delete': {"type":"array"}
 },
 
 maintenance: {
-    'get': ['nodeids','groupids','hostids','maintenanceids','editable','filter','pattern','startPattern','excludePattern','output','select_groups','select_hosts','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
-    'exists': ['nodeids','maintenanceid','maintenance'],
+    'get': {"type":"object","value":['nodeids','groupids','hostids','maintenanceids','editable','filter','pattern','startPattern','excludePattern','output','select_groups','select_hosts','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit']},
+    'exists': {"type":"object","value":['nodeids','maintenanceid','maintenance']},
     //'create': [],
     //'update': [],
-    'delete': ['maintenanceids']
+    'delete': {"type":"array"}
 },
 
 map: {
-    'get': ['nodeids','sysmapids','editable','filter','search','startSearch','excludeSearch','output','select_selements','select_links','countOutput','preservekeys','sortfield','sortorder','limit'],
-    'exists': ['nodeids','sysmapid','name'],
+    'get': {"type":"object","value":['nodeids','sysmapids','editable','filter','search','startSearch','excludeSearch','output','select_selements','select_links','countOutput','preservekeys','sortfield','sortorder','limit']},
+    'exists': {"type":"object","value":['nodeids','sysmapid','name']},
     //'create': [],
     //'update': [],
-    'delete': ['sysmapids']
+    'delete': {"type":"array"}
 },
 
 mediatype: {
-    'get': ['nodeids','userids','mediaids','mediatypeids','editable','filter','search','startSearch','excludeSearch','output','select_users','select_medias','countOutput','preservekeys','sortfield','sortorder','limit'],
+    'get': {"type":"object","value":['nodeids','userids','mediaids','mediatypeids','editable','filter','search','startSearch','excludeSearch','output','select_users','select_medias','countOutput','preservekeys','sortfield','sortorder','limit']},
     //'create': [],
     //'update': [],
-    'delete': ['mediatypeids']
+    'delete': {"type":"array"}
 },
 
 proxy: {
-    'get': ['nodeids','proxyids','editable','filter','search','startSearch','excludeSearch','output','select_hosts','countOutput','preservekeys','sortfield','sortorder','limit'],
+    'get': {"type":"object","value":['nodeids','proxyids','editable','filter','search','startSearch','excludeSearch','output','select_hosts','countOutput','preservekeys','sortfield','sortorder','limit']},
     //'create': [],
-    'delete': ['proxyids']
+    'delete': {"type":"array"}
 },
 
 screen: {
-    'get': ['nodeids','screenids','screenitemids','type','editable','filter','search','startSearch','excludeSearch','output','select_screenitems','countOutput','preservekeys','sortfield','sortOrder','limit'],
-    'exists': ['nodeids','screenid','name'],
+    'get': {"type":"object","value":['nodeids','screenids','screenitemids','type','editable','filter','search','startSearch','excludeSearch','output','select_screenitems','countOutput','preservekeys','sortfield','sortOrder','limit']},
+    'exists': {"type":"object","value":['nodeids','screenid','name']},
     //'create': [],
     //'update': [],
-    'delete': ['screenids']
+    'delete': {"type":"array"}
 },
 
 script : {
-    'get': ['nodeids','groupids','hostids','scriptids','editable','filter','search','startSearch','excludeSearch','output','select_groups','select_hosts','countOutput','preservekeys','sortfield','sortorder','limit'],
-    'execute': ['scriptid','hostid'],
+    'get': {"type":"object","value":['nodeids','groupids','hostids','scriptids','editable','filter','search','startSearch','excludeSearch','output','select_groups','select_hosts','countOutput','preservekeys','sortfield','sortorder','limit']},
+    'execute': {"type":"object","value":['scriptid','hostid']},
     //'create': [],
     //'update': [],
-    'delete': ['scriptids']
+    'delete': {"type":"array"}
 },
 
 template: {
-    'get': ['nodeids','groupids','templateids','parentTemplateids','hostids','itemids','triggerids','graphids','proxyids','maitenanceids','with_items','with_triggers','with_graphs','editable','filter','search','startSearch','excludeSrarch','output','select_groups','selectParentTemplates','select_templates','select_hosts','select_items','select_triggers','select_graphs','select_applications','select_macros','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
-    'exists': ['nodeids','hostid','host'],
+    'get': {"type":"object","value":['nodeids','groupids','templateids','parentTemplateids','hostids','itemids','triggerids','graphids','proxyids','maitenanceids','with_items','with_triggers','with_graphs','editable','filter','search','startSearch','excludeSrarch','output','select_groups','selectParentTemplates','select_templates','select_hosts','select_items','select_triggers','select_graphs','select_applications','select_macros','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit']},
+    'exists': {"type":"object","value":['nodeids','hostid','host']},
     //'create': [],
     //'update': [],
     //'massAdd': [],
     //'massUpdate': [],
     //'massRemove': [],
-    'delete': ['templateids']
+    'delete': {"type":"array"}
 },
 
 trigger: {
@@ -375,46 +375,46 @@ trigger: {
     'deleteDependencies': {"type":"object","value":['triggerids']}
 },
 triggerprototype:{
-    'get':['active','applicationids','discoveryids','functions','group','groupids','host','hostids','inherited','maintenance','min_severity','monitored','templated','templateids','triggerids','expandExpression','selectDiscoveryRule','selectFunctions','selectGroups','selectHosts','selectItems','selectDependencies','selectTags','filter','limitSelects','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch'],
-    'create':["triggerid","description ","expression","comments","priority","status","templateid","type","url","recovery_mode","recovery_expression","correlation_mode","correlation_tag","manual_close","dependencies","tags"],
-    'update':["triggerid","description ","expression","comments","priority","status","templateid","type","url","recovery_mode","recovery_expression","correlation_mode","correlation_tag","manual_close","dependencies","tags"],
-    'delete':["triggerPrototypeIds"]
+    'get':{"type":"object","value":['active','applicationids','discoveryids','functions','group','groupids','host','hostids','inherited','maintenance','min_severity','monitored','templated','templateids','triggerids','expandExpression','selectDiscoveryRule','selectFunctions','selectGroups','selectHosts','selectItems','selectDependencies','selectTags','filter','limitSelects','sortfield','countOutput','editable','excludeSearch','limit','output','preservekeys','search','searchByAny','searchWildcardsEnabled','sortorder','startSearch']},
+    'create':{"type":"object","value":["triggerid","description ","expression","comments","priority","status","templateid","type","url","recovery_mode","recovery_expression","correlation_mode","correlation_tag","manual_close","dependencies","tags"]},
+    'update':{"type":"object","value":["triggerid","description ","expression","comments","priority","status","templateid","type","url","recovery_mode","recovery_expression","correlation_mode","correlation_tag","manual_close","dependencies","tags"]},
+    'delete':{"type":"array"}
 },
 
 user: {
-    'get': ['nodeids','usrgrpids','userids','mediaids','mediatypeids','editable','filter','search','startSearch','excludeSearch','output','select_usrgrps','select_medias','select_mediatypes','get_graphs','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit'],
+    'get': {"type":"object","value":['nodeids','usrgrpids','userids','mediaids','mediatypeids','editable','filter','search','startSearch','excludeSearch','output','select_usrgrps','select_medias','select_mediatypes','get_graphs','countOutput','groupOutput','preservekeys','sortfield','sortorder','limit']},
     //'create': [],
     //'update': [],
     //'updateProfile': [],
-    'delete': ['userids'],
+    'delete': {"type":"array"},
     //'addMedia': [],
     //'updateMedia': [],
     //'deleteMedia': [],
-    'authenticate': [],
-    'login': ['user','password'],
-    'logout': []
+    'authenticate': {"type":"object","value":[]},
+    'login': {"type":"object","value":['user','password']},
+    'logout': {"type":"object","value":[]}
 },
 
 usergroup: {
-    'get': ['nodeids','usrgrpids','userids','status','with_gui_access','with_api_access','editable','filter','pattern','startPattern','excludePattern','select_users','output','countOutput','preservekeys','sortfield','sortorder','limit'],
-    'exists': ['nodeids','usrgrpid','name'],
+    'get': {"type":"object","value":['nodeids','usrgrpids','userids','status','with_gui_access','with_api_access','editable','filter','pattern','startPattern','excludePattern','select_users','output','countOutput','preservekeys','sortfield','sortorder','limit']},
+    'exists': {"type":"object","value":['nodeids','usrgrpid','name']},
     //'create': [],
     //'update': [],
     //'massAdd': [],
     //'massUpdate': [],
     //'massRemove': [],
-    'delete': ['usrgrpids']
+    'delete': {"type":"array"}
 },
 
 usermacro: {
-    'get': ['nodeids','groupids','hostids','templateids','hostmacroids','globalmacroids','globalmacro','editable','filter','pattern','startPattern','excludePattern','output','select_groups','select_hosts','select_templates','countOutput','preservekeys','sortfield','sortorder','limit'],
+    'get': {"type":"object","value":['nodeids','groupids','hostids','templateids','hostmacroids','globalmacroids','globalmacro','editable','filter','pattern','startPattern','excludePattern','output','select_groups','select_hosts','select_templates','countOutput','preservekeys','sortfield','sortorder','limit']},
     //'createGlobal': [],
     //'updateGlobal': [],
     //'massAdd': [],
     //'massUpdate': [],
     //'massRemove': [],
-    'deleteGlobal': ['grobalmacroids'],
-    'deleteHostMacro': ['hostmacroids']
+    'deleteGlobal': {"type":"object","value":['grobalmacroids']},
+    'deleteHostMacro': {"type":"object","value":['hostmacroids']}
 }
 // end parameters
 };
