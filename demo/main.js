@@ -93,7 +93,6 @@ function doRequest(form) {
     var params = {};
 
     $('#request .parameters input').each(function(){
-        debugger;
         if (this.value){
             if(this.value.indexOf("[")==0&&this.value.lastIndexOf("]")==this.value.length-1){
                if(this.name){
