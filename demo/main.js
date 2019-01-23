@@ -177,7 +177,7 @@ var successMethod = function(response, status) {
         });
 
         if (contents) {
-            $('#result').html('<p>response: '+ JSON.stringify(response) + '</p><table>' + header + contents + '</table>');
+            $('#result').html('<table>' + header + contents + '</table>');
         }
         else {
             $('#result').html('No result')
