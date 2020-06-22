@@ -51,24 +51,26 @@ function createAjaxOption(method, params, success, error, complete) {
 
     // default params
     params = $.extend({
-        extendoutput: true,
-        limit: options.limit
+        //extendoutput: true,
+        //limit: options.limit
     }, params);
 
     // merge params with username and password
-    $.extend(params, {
-        user: options.username,
-        password: options.password
-    });
+    // $.extend(params, {
+    //     user: options.username,
+    //     password: options.password
+    // });
 
     // create sending data
     var data = {
         jsonrpc: '2.0',
         id: ++rpcid,
-        auth: authid,
         method: method,
         params: params
     };
+    if(authid){
+        data.auth=authid;
+    }
 
     // create AJAX option
     var ajaxOption = {
